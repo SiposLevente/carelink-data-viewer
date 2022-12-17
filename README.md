@@ -14,3 +14,6 @@ Edit the `settings.conf`file to your CareLink login data to access the readings.
 
 ## Disclamer
 **Do not use the values displayed for threapial reasons as readings can be inaccurate! It is recomended that you wash your hands and measure your blood glucose with a blood glucose meter before injecting additional insulin or eating carbohidrates for a low value!**
+
+## Credits
+CareLink Java client is from [benceszasz](https://github.com/benceszasz). Repository: [https://github.com/benceszasz/CareLinkJavaClient](https://github.com/benceszasz/CareLinkJavaClient).
