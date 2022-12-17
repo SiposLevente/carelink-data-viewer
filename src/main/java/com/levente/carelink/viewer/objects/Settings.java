@@ -4,4 +4,5 @@ public enum Settings {
     username,
     password,
     country_code,
+    unit,
 }

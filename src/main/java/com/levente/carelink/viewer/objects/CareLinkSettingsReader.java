@@ -3,7 +3,7 @@ package com.levente.carelink.viewer.objects;
 import java.io.File;
 import java.util.Scanner;
 
-public class CareLinkLoginReader {
+public class CareLinkSettingsReader {
     static String file_location = "settings.conf";
 
     public static String GetConfigProperty(Settings setting) throws Exception {

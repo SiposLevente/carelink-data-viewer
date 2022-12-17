@@ -11,6 +11,7 @@ public class CareLinkDataManager {
     static String username;
     static String password;
     static String countryCode;
+    static Units unit;
 
     public RecentData getRecentData() {
         return CareLinkDataManager.recentData;
@@ -22,6 +23,18 @@ public class CareLinkDataManager {
                     CareLinkDataManager.password, CareLinkDataManager.countryCode);
         }
         return CareLinkDataManager.instance;
+    }
+
+    public static void setUnit(String unit) {
+        if (unit.toLowerCase().equals(Units.mmolL.toString().toLowerCase())) {
+            CareLinkDataManager.unit = Units.mmolL;
+        } else {
+            CareLinkDataManager.unit = Units.mgdL;
+        }
+    }
+
+    public static String getUnit() {
+        return unit.toDisplayString();
     }
 
     public static void setLoginData(String username, String password, String countryCode) {
@@ -36,7 +49,11 @@ public class CareLinkDataManager {
 
     public static float getCurrentSG() {
         UpdateData();
-        return recentData.lastSG.sg / 18.0f;
+        float currentData = recentData.lastSG.sg;
+        if (unit == Units.mmolL) {
+            currentData /= 18.0f;
+        }
+        return currentData;
     }
 
     public static String getCurrentSGString(int decimals) {
@@ -46,7 +63,10 @@ public class CareLinkDataManager {
 
     public static float getSGDelta() {
         UpdateData();
-        float prev_sg = recentData.sgs.get(recentData.sgs.size() - 2).sg / 18.0f;
+        float prev_sg = recentData.sgs.get(recentData.sgs.size() - 2).sg;
+        if (unit == Units.mmolL) {
+            prev_sg /= 18.0f;
+        }
         return getCurrentSG() - prev_sg;
     }
 
@@ -70,7 +90,6 @@ public class CareLinkDataManager {
 
     private CareLinkDataManager(String username, String password, String countryCode) {
         client = new CareLinkClient(username, password, countryCode);
-
         if (client.login()) {
             recentData = client.getRecentData();
             System.out.println("Successfully logged in!");

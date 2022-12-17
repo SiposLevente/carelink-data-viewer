@@ -5,6 +5,7 @@
 JSONObject jsonObj = new JSONObject();
 jsonObj.put("bg", CareLinkDataManager.getCurrentSGString(2));
 jsonObj.put("bg_delta", CareLinkDataManager.getSGDeltaString(2));
+jsonObj.put("unit", CareLinkDataManager.getUnit());
 out.println(jsonObj);
 out.flush();
 %>
