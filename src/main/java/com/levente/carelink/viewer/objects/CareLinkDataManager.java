@@ -1,17 +1,13 @@
 package com.levente.carelink.viewer.objects;
 
-import java.io.Console;
 import java.text.DecimalFormat;
-
 import info.nightscout.medtronic.carelink.client.CareLinkClient;
 import info.nightscout.medtronic.carelink.message.RecentData;
 
 public class CareLinkDataManager {
     static CareLinkDataManager instance = null;
-
     static CareLinkClient client;
     static RecentData recentData;
-
     static String username;
     static String password;
     static String countryCode;
