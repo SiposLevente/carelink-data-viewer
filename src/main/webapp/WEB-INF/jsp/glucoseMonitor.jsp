@@ -36,7 +36,7 @@
 
                     if (!is_timer_correctly_set) {
                         clearInterval(timer);
-                        timer = setInterval(updateCounter, 1000 * 60 * 6);
+                        timer = setInterval(updateCounter, 1000 * 60);
                         is_timer_correctly_set = true;
                         // console.log("Updated timer!");
                     }
