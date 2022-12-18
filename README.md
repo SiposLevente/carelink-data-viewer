@@ -10,7 +10,8 @@ Edit the `settings.conf`file to your CareLink login data to access the readings.
 ### Valid settings
 - `username`: Your CareLink's username.
 - `password`: Your CareLink's password.
-- `country_code`: Your CareLink's country (e.g.: Hungary -> `hu`, United States -> `us`)
+- `country_code`: Your CareLink's country. (e.g.: Hungary -> `hu`, United States -> `us`)
+- `unit`: Display unit. (valid values are `mmolL` and `mgdL`, this setting is case insensitive)
 
 ## Disclamer
 **Do not use the values displayed for threapial reasons as readings can be inaccurate! It is recomended that you wash your hands and measure your blood glucose with a blood glucose meter before injecting additional insulin or eating carbohidrates for a low value!**
