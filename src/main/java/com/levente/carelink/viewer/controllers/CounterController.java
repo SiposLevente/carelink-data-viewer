@@ -20,9 +20,12 @@ public class CounterController {
     }
 
     private void SetAttributes(Model model) {
-        model.addAttribute("bg", CareLinkDataManager.getCurrentSGString(2));
-        model.addAttribute("bg_delta", CareLinkDataManager.getSGDeltaString(2));
+        model.addAttribute("bg", CareLinkDataManager.FormatData(CareLinkDataManager.getCurrentSG(), 2));
+        model.addAttribute("bg_delta", CareLinkDataManager.FormatData(CareLinkDataManager.getSGDelta(), 2));
         model.addAttribute("unit", CareLinkDataManager.getUnit());
+        model.addAttribute("reservoir_ammount",
+                CareLinkDataManager.FormatData(CareLinkDataManager.getInsulinInPump(), 2));
+        model.addAttribute("IOB", CareLinkDataManager.FormatData(CareLinkDataManager.getCurrentIOB(), 2));
     }
 
 }

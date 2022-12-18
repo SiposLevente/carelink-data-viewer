@@ -56,9 +56,12 @@ public class CareLinkDataManager {
         return currentData;
     }
 
-    public static String getCurrentSGString(int decimals) {
+    public static float getCurrentIOB() {
+        return recentData.activeInsulin.amount.floatValue();
+    }
 
-        return FormatData(CareLinkDataManager.getCurrentSG(), decimals);
+    public static float getInsulinInPump() {
+        return recentData.reservoirRemainingUnits;
     }
 
     public static float getSGDelta() {
@@ -70,12 +73,7 @@ public class CareLinkDataManager {
         return getCurrentSG() - prev_sg;
     }
 
-    public static String getSGDeltaString(int decimals) {
-        UpdateData();
-        return FormatData(CareLinkDataManager.getSGDelta(), decimals);
-    }
-
-    private static String FormatData(float value, int decimals) {
+    public static String FormatData(float value, int decimals) {
         String pattern = "#";
         if (decimals != 0) {
             pattern += ".";
